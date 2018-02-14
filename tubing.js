@@ -20,27 +20,39 @@ https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=2&q=space&t
 const YOUTUBE_SEARCH_URL = 'https://www.googleapis.com/youtube/v3/search';
 
 function getDataFromApi(searchTerm, callback) {
-  const query = {
-  	'part':'snippet',
-  	'maxResults': 5,
-  	'q':`${searchTerm}`,
-  	'type': 'video',
-  	'key': 'AIzaSyDYPt_m-1WwC6boAsqjjjmkqQmbtH8tK2I'
-  };
-  $.getJSON(YOUTUBE_SEARCH_URL, query, callback);
+	const query = {
+	  'part':'snippet',
+	  'maxResults': 1,
+	  'q':`${searchTerm}`,
+	  'type': 'video',
+	  'key': 'AIzaSyDYPt_m-1WwC6boAsqjjjmkqQmbtH8tK2I'
+	};
+	$.getJSON(YOUTUBE_SEARCH_URL, query, callback);
 }
 
 function renderResult(result) {
 	console.log(result.snippet.title);
-	return result.snippet.title; 
+	console.log(result.snippet.thumbnails.default);
+
+	let searchResults = `<h3>${result.snippet.title}</h3>
+						 <a href='http://www.youtube.com/watch?v=${result.id.videoId}'> <img src='${result.snippet.thumbnails.default.url}' alt=''></a>`;
+
+	return searchResults; 
 }
 
 function displaySearchData(data) {
-  const results = data.items.map((item, index) => renderResult(item));
- // $('.js-search-results').html(results);
- console.log(results);
-
+ 	const results = data.items.map((item, index) => renderResult(item));
+	// $('.js-search-results').html(results);
+ 	console.log(results);
+	$('.js-results').html(results);
 }
 
+function getUserInput(){
+	$('.js-search-button').click( event => {
+		event.preventDefault();
+		getDataFromApi( $('input').val(), displaySearchData );
 
-$( getDataFromApi('space', displaySearchData ) );
+	});
+}
+
+$( getUserInput() );
