@@ -4,25 +4,41 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width">
 		<title>Think Tube</title>
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.css" rel="stylesheet">
+		  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="main.css">
+		<link rel="stylesheet" type="text/css" href="grid.css">
 	</head>
 	<body>
-		<header role="banner"><h1>Thinkful Tube</h1></header>
+		<header role="banner">
+			<div class="row">
+     			<div class="col-12">
+        			<h1>Thinkful Tube</h1>  
+    			</div>
+  			</div>
+		</header>
 		<main role="main">
 			<section>
-				<h2>Find you favorite videos!</h2>
-				<form name="Search">
-					<fieldset>
-						<legend>Enter a video topic to search for:</legend>
-						<label for="searchterm">Search: </label><input type="text" name="searchterm" placeholder="Example: space" class="js-query">
-						 <button type="submit" class="js-search-button">Search</button>
-					</fieldset>
-				</form>
+				<div class="row">
+  					<div class="col-12">
+						<h2>Find you favorite videos!</h2>
+						<form name="Search">
+							<fieldset>
+								<legend>Enter a video topic to search for:</legend>
+								<label for="searchterm">Search: </label><input type="text" name="searchterm" placeholder="Example: space" class="js-query">
+								 <button type="submit" class="js-search-button">Search</button>
+							</fieldset>
+						</form>
+					</div>
+				</div>
 			</section>
 			<section>
 				<div class="js-results">
-					<a href="#"><img src="https://i.ytimg.com/vi/j2y-dHWZ0dM/default_live.jpg"></a>
-				</div>	
+					
+				</div>
+				<form>
+					<button class='js-next hidden' data = ''>Next page...</button>
+				</form>
 			</section>
 		</main>
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
