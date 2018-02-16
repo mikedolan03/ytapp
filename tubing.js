@@ -77,10 +77,14 @@ function renderData(items){
 
 
 			searchResults += `<div class="col-4" id='${currentIndex}'>
+								<div class="box">
+								<div class="box-content">
 								<h3>${items[currentIndex].snippet.title}</h3>
 							 	<a href='http://www.youtube.com/watch?v=${items[currentIndex].id.videoId}&t=1m'> 
 							 	<img src='${items[currentIndex].snippet.thumbnails.medium.url}' alt=''>
 							 	</a>
+							 	</div>
+							 	</div>
 						 </div> <!-- classdiv-->`;
 
 			if(i==2) {
@@ -123,6 +127,9 @@ function getNextButtonInput(){
 		event.preventDefault();
 		console.log($('.js-next').attr('data')); 
 		getDataFromApi( $('input').val(), displaySearchData, $('.js-next').attr('data') );
+
+		document.body.scrollTop = 0;
+    	document.documentElement.scrollTop = 0;
 
 	});
 }

@@ -1,7 +1,92 @@
+body {
+		font-family: "Roboto", sans-serif;
+		color: white;
+		background-color: #272727;
+		margin: 0;
+		padding: 0;
+}
+
 .hidden {
 	display: none;
 }
 
 .show {
 	display: block;
+}
+
+.box {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 4px;
+  border-color: grey;
+  height: 300px;
+  display: table;
+  margin-bottom: 20px;
+  text-align: center;
+  background-color: black;
+}
+
+.box-content {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.box-content img {
+	max-width: 80%
+	;
+}
+
+.search-box {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 4px;
+  border-color: grey;
+  margin-bottom: 20px;
+  text-align: center;
+  background-color: black;
+  padding: 2px;
+}
+
+fieldset { 
+  margin 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  border-style: none;
+  text-align: center;
+}
+
+legend {
+	margin-bottom: 10px;
+}
+button {
+  font-family: 'Roboto', Sans-Serif;
+  color: black;
+  display: block;
+  width: 100px;
+  height: 20px;
+  margin-top: 20px;
+  padding: 0;
+  border-radius: 5px;
+  border-width: 0;
+  background-color: lightgray;
+  margin-left: auto;
+  margin-right: auto;
+ }
+
+button:hover {
+  background-color: white;
+  width: 110px;
+}
+
+/* Non-mobile, grid */
+@media only screen and (min-width: 640px) {
+ 
+ .box {
+   	margin-bottom: 0px;
+ }
+
+ main .row {
+  margin-bottom: 20px;
+}
+
 }
