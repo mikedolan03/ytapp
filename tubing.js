@@ -34,26 +34,6 @@ console.log("getting data: " + pageTok);
 	$.getJSON(YOUTUBE_SEARCH_URL, query, callback);
 }
 
-function renderResult(result, index, dataLength) {
-	console.log(result.snippet.title);
-	console.log(result.snippet.thumbnails.default);
-
-	let searchResults ='';
-
-	if(index === 0) {
-		searchResults = `<div class='row starterrow' id='${index}'>` 
-	}
-
-	searchResults += `<div class="col-4" id='${index}'>
-							<h3>${result.snippet.title}</h3>
-						 	<a href='http://www.youtube.com/watch?v=${result.id.videoId}&t=1m'> 
-						 	<img src='${result.snippet.thumbnails.default.url}' alt=''>
-						 	</a>
-					 </div> <!-- classdiv-->`;
-
-	return searchResults; 
-}
-
 
 function renderData(items){
 
