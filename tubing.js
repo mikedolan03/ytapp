@@ -80,8 +80,8 @@ function renderData(items){
 								<div class="box">
 								<div class="box-content">
 								<h3>${items[currentIndex].snippet.title}</h3>
-								<button class="js-play-video" data='${items[currentIndex].id.videoId}'>
-							 	<img src='${items[currentIndex].snippet.thumbnails.medium.url}' alt='' data='${items[currentIndex].id.videoId}'>
+								<button name = "Play: ${items[currentIndex].snippet.title} "class="js-play-video" data='${items[currentIndex].id.videoId}'>
+							 	<img src='${items[currentIndex].snippet.thumbnails.medium.url}' alt='${items[currentIndex].snippet.title}' data='${items[currentIndex].id.videoId}'>
 							 	</button>
 							 	</div>
 							 	</div>
@@ -113,7 +113,10 @@ function displaySearchData(data, status) {
 
 	// $('.js-search-results').html(results);
  	//console.log(results);
-	$('.js-results').html(results);
+	$('.js-results-shown').html(`<h3>New Search Results. Showing ${data.pageInfo.resultsPerPage} results out of ${data.pageInfo.totalResults} videos found.</h3>`).prop('hidden', false);
+
+	$('.js-results').prop('hidden', false).html(results);
+
 
 	$('.js-next').removeClass( "hidden" ).addClass( "show" );
 	$('.js-next').attr("data", `${data.nextPageToken}`);
@@ -139,7 +142,7 @@ function getVideoPlayInput() {
 
 		$('.js-close').click( event => {
 			event.preventDefault();
-			$('.modal').addClass("hidden").removeClass("show");
+			$('.modal').prop('hidden', false).addClass("hidden").removeClass("show");
 		});
 	});
 	
