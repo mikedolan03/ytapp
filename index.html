@@ -35,14 +35,20 @@
 				</div>
 			</section>
 			<section>
-				<div class="js-results">	
+				<div class="row">
+  					<div class="col-12">
+						<div class="js-results-shown search-box" aria-live="assertive" hidden>
+						</div>
+					</div>
+				</div>
+				<div class="js-results" aria-live="assertive" hidden>	
 				</div>
 				<form>
 					<button class='js-next hidden' data = ''>Next page...</button>
 				</form>
 			</section>
-			<section>
-				<div id="video-pop-up" class="modal hidden">
+			<section >
+				<div id="video-pop-up" class="modal hidden" aria-live="assertive" hidden>
 				  <div class="video-content">
 				       <p>Some text in the Modal..</p>
 				  </div>
