@@ -75,14 +75,14 @@ function renderData(items){
 
 			console.log("current item: " +items[currentIndex].id.videoId);
 
-
+	
 			searchResults += `<div class="col-4" id='${currentIndex}'>
 								<div class="box">
 								<div class="box-content">
 								<h3>${items[currentIndex].snippet.title}</h3>
-							 	<a href='http://www.youtube.com/watch?v=${items[currentIndex].id.videoId}&t=1m'> 
-							 	<img src='${items[currentIndex].snippet.thumbnails.medium.url}' alt=''>
-							 	</a>
+								<button class="js-play-video" data='${items[currentIndex].id.videoId}'>
+							 	<img src='${items[currentIndex].snippet.thumbnails.medium.url}' alt='' data='${items[currentIndex].id.videoId}'>
+							 	</button>
 							 	</div>
 							 	</div>
 						 </div> <!-- classdiv-->`;
@@ -92,6 +92,8 @@ function renderData(items){
 			}
 		}
 	}
+
+
 
 	return searchResults;
 
@@ -118,9 +120,32 @@ function displaySearchData(data, status) {
 
 	getNextButtonInput();
 
-
-
+	getVideoPlayInput();
 }
+
+function getVideoPlayInput() {
+
+	$('.js-play-video').click( event => {
+		event.preventDefault();
+		$('.modal').addClass("show").removeClass("hidden");
+		console.log($(event.target));
+		let vidID = $(event.target).attr('data');
+		let videoHtml = `<iframe id="ytplayer" type="text/html" class="video-player"
+			src="https://www.youtube.com/embed/${vidID}"
+			frameborder="0" allowfullscreen></iframe> 
+			<p><a href="#" class="js-close">X Close</a></p>`; 
+
+		$('.video-content').html( videoHtml );
+
+		$('.js-close').click( event => {
+			event.preventDefault();
+			$('.modal').addClass("hidden").removeClass("show");
+		});
+	});
+	
+	
+}
+
 
 function getNextButtonInput(){
 		$('.js-next').click( event => {
