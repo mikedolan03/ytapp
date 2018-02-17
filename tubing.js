@@ -133,8 +133,8 @@ function getVideoPlayInput() {
 		$('.modal').addClass("show").removeClass("hidden");
 		console.log($(event.target));
 		let vidID = $(event.target).attr('data');
-		let videoHtml = `<iframe id="ytplayer" type="text/html" class="video-player"
-			src="https://www.youtube.com/embed/${vidID}"
+		let videoHtml = `<iframe title="Embedded YouTube Video" id="ytplayer" type="text/html" class="video-player"
+			src="https://www.youtube.com/embed/${vidID}?cc_load_policy=1"
 			frameborder="0" allowfullscreen></iframe> 
 			<p><a href="#" class="js-close">X Close</a></p>`; 
 
